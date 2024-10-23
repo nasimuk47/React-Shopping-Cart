@@ -19,7 +19,7 @@ const BestSellers = () => {
       });
   }, []);
 
-  const bestSellers = products.filter((item) => item.status === "Best Selers");
+  const bestSellers = products.filter((item) => item.status === "Best Sellers");
 
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4">

@@ -5,7 +5,15 @@
     "category": "Dress",
     "price": 63.85,
     "image": "/images/products/image1.png",
-    "status": "Best Selers"
+    "status": "Best Sellers",
+    "description": "Comfortable and stylish joggers for everyday wear.",
+    "highlights": [
+      "Hand cut and sewn locally",
+      "Dyed with proprietary colors",
+      "Pre-washed & pre-shrunk",
+      "Ultra-soft 100% cotton"
+    ],
+    "details": "These joggers are made from premium fabric, featuring an adjustable waistband and sleek design for maximum comfort."
   },
   {
     "id": 2,
@@ -13,15 +21,31 @@
     "category": "Bag",
     "price": 130.0,
     "image": "/images/products/image2.png",
-    "status": "Best Selers"
+    "status": "Best Sellers",
+    "description": "Luxury sportswear bag with ample storage for your essentials.",
+    "highlights": [
+      "Premium synthetic leather",
+      "Adjustable strap",
+      "Multiple compartments for easy organization",
+      "Lightweight and durable"
+    ],
+    "details": "The Futura Luxe bag is designed to offer both style and functionality, perfect for gym or casual use."
   },
   {
     "id": 3,
-    "title": "Geometric print Scarf",
+    "title": "Geometric Print Scarf",
     "category": "Dress",
     "price": 53.0,
     "image": "/images/products/image3.png",
-    "status": "Best Selers"
+    "status": "Best Sellers",
+    "description": "Elegant scarf with a bold geometric print.",
+    "highlights": [
+      "100% silk",
+      "Hand-dyed",
+      "Lightweight and breathable",
+      "Versatile styling options"
+    ],
+    "details": "Add a touch of sophistication to your outfit with this geometric print scarf."
   },
   {
     "id": 4,
@@ -29,7 +53,15 @@
     "category": "Hoodies",
     "price": 63.85,
     "image": "/images/products/image4.png",
-    "status": "New Arriaval"
+    "status": "New Arrival",
+    "description": "Bright yellow hoodie for a stylish look.",
+    "highlights": [
+      "Soft cotton blend",
+      "Kangaroo pocket",
+      "Adjustable drawstring hood",
+      "Ribbed cuffs and hem"
+    ],
+    "details": "This hoodie combines comfort and style, perfect for casual outings."
   },
   {
     "id": 5,
@@ -37,7 +69,15 @@
     "category": "Dress",
     "price": 236.0,
     "image": "/images/products/image5.png",
-    "status": "New Arriaval"
+    "status": "New Arrival",
+    "description": "A versatile green dress for any occasion.",
+    "highlights": [
+      "Elegant silhouette",
+      "Breathable fabric",
+      "Perfect for layering",
+      "Available in multiple sizes"
+    ],
+    "details": "The Basic Dress is designed to flatter all body types, making it a wardrobe staple."
   },
   {
     "id": 6,
@@ -45,7 +85,15 @@
     "category": "Shoe",
     "price": 198.0,
     "image": "/images/products/image6.png",
-    "status": "Best Selers"
+    "status": "Best Sellers",
+    "description": "High-performance running shoes.",
+    "highlights": [
+      "Responsive cushioning",
+      "Breathable mesh upper",
+      "Durable rubber outsole",
+      "Lightweight design"
+    ],
+    "details": "The Air Zoom Pegasus provides excellent support for long runs."
   },
   {
     "id": 7,
@@ -53,13 +101,222 @@
     "category": "Hoodies",
     "price": 120.5,
     "image": "/images/products/image7.png",
-    "status": "Best Selers"
+    "status": "Best Sellers",
+    "description": "Lightweight and weather-resistant running jacket.",
+    "highlights": [
+      "Water-repellent fabric",
+      "Reflective details",
+      "Adjustable hood",
+      "Zippered pockets"
+    ],
+    "details": "Stay dry and visible on your runs with the Repel Miler jacket."
   },
   {
     "id": 8,
-    "title": "Nike Sportswear Futura Luxe",
-    "category": "Glasses",
+    "title": "Leather Satchel",
+    "category": "Trendy Sunglasses",
     "price": 160.0,
-    "image": "/images/products/image8.png"
+    "image": "/images/products/image8.png",
+    "status": "Best Sellers",
+    "description": "Elegant leather satchel for professional settings.",
+    "highlights": [
+      "Genuine leather",
+      "Spacious interior",
+      "Adjustable strap",
+      "Classic design"
+    ],
+    "details": "Perfect for work or formal occasions, this satchel exudes professionalism."
+  },
+  {
+    "id": 9,
+    "title": "Classic White Sneakers",
+    "category": "Shoe",
+    "price": 75.0,
+    "image": "/public/images/products/image9.jpg",
+    "status": "Best Sellers",
+    "description": "Timeless white sneakers that go with everything.",
+    "highlights": [
+      "Soft leather upper",
+      "Cushioned insole",
+      "Rubber outsole",
+      "Easy to clean"
+    ],
+    "details": "These sneakers are a wardrobe essential for any casual outfit."
+  },
+  {
+    "id": 10,
+    "title": "Sporty Watch",
+    "category": "Accessories",
+    "price": 200.0,
+    "image": "/images/products/image10.jpg",
+    "status": "New Arrival",
+    "description": "Stylish and functional watch for sports enthusiasts.",
+    "highlights": [
+      "Water-resistant",
+      "Multiple sport modes",
+      "Long battery life",
+      "Customizable watch faces"
+    ],
+    "details": "Track your workouts and stay on time with this versatile sporty watch."
+  },
+  {
+    "id": 11,
+    "title": "Backpack with USB Port",
+    "category": "Bag",
+    "price": 85.0,
+    "image": "/images/products/image11.jpg",
+    "status": "Best Sellers",
+    "description": "Convenient backpack with charging port.",
+    "highlights": [
+      "Spacious compartments",
+      "Padded laptop sleeve",
+      "Durable material",
+      "USB charging port"
+    ],
+    "details": "Ideal for students and travelers, this backpack combines utility and style."
+  },
+  {
+    "id": 12,
+    "title": "Trendy Sunglasses",
+    "category": "Accessories",
+    "price": 40.0,
+    "image": "/images/products/image12.jpg",
+    "status": "New Arrival",
+    "description": "Fashionable sunglasses for sunny days.",
+    "highlights": [
+      "UV protection",
+      "Lightweight frame",
+      "Polarized lenses",
+      "Stylish design"
+    ],
+    "details": "Keep your eyes protected in style with these trendy sunglasses."
+  },
+  {
+    "id": 13,
+    "title": "Wireless Earbuds",
+    "category": "Accessories",
+    "price": 120.0,
+    "image": "/images/products/image13.jpg",
+    "status": "Best Sellers",
+    "description": "High-quality wireless earbuds for music lovers.",
+    "highlights": [
+      "Noise cancellation",
+      "Long battery life",
+      "Touch controls",
+      "Sweat-resistant"
+    ],
+    "details": "Enjoy your favorite tunes without the hassle of wires."
+  },
+  {
+    "id": 14,
+    "title": "Yoga Mat",
+    "category": "Fitness",
+    "price": 45.0,
+    "image": "/images/products/image14.jpg",
+    "status": "Best Sellers",
+    "description": "Comfortable and durable yoga mat for practice.",
+    "highlights": [
+      "Non-slip surface",
+      "Eco-friendly material",
+      "Extra cushioning",
+      "Portable design"
+    ],
+    "details": "Enhance your yoga practice with this comfortable mat."
+  },
+  {
+    "id": 15,
+    "title": "Fitness Tracker",
+    "category": "Fitness",
+    "price": 150.0,
+    "image": "/images/products/image15.jpg",
+    "status": "New Arrival",
+    "description": "Smart fitness tracker for health monitoring.",
+    "highlights": [
+      "Heart rate monitor",
+      "Sleep tracking",
+      "Step counter",
+      "Water-resistant"
+    ],
+    "details": "Keep track of your fitness goals with this smart tracker."
+  },
+  {
+    "id": 16,
+    "title": "Casual Sneakers",
+    "category": "Shoe",
+    "price": 65.0,
+    "image": "/images/products/image16.jpg",
+    "status": "Best Sellers",
+    "description": "Comfortable sneakers for everyday wear.",
+    "highlights": [
+      "Breathable mesh",
+      "Cushioned footbed",
+      "Stylish design",
+      "Available in multiple colors"
+    ],
+    "details": "Perfect for daily activities and outings."
+  },
+  {
+    "id": 17,
+    "title": "Classic Denim Jacket",
+    "category": "Outerwear",
+    "price": 85.0,
+    "image": "/images/products/image17.jpg",
+    "status": "New Arrival",
+    "description": "Timeless denim jacket for layering.",
+    "highlights": [
+      "Durable denim fabric",
+      "Classic fit",
+      "Multiple pockets",
+      "Versatile style"
+    ],
+    "details": "Layer up with this classic denim jacket, perfect for any season."
+  },
+  {
+    "id": 18,
+    "title": "Stylish Ankle Boots",
+    "category": "Shoe",
+    "price": 99.0,
+    "image": "/images/products/image18.jpg",
+    "status": "Best Sellers",
+    "description": "Chic ankle boots for a fashionable look.",
+    "highlights": [
+      "Soft faux leather",
+      "Side zipper for easy wear",
+      "Comfortable heel height",
+      "Available in multiple colors"
+    ],
+    "details": "Complete your outfit with these stylish ankle boots."
+  },
+  {
+    "id": 19,
+    "title": "Sporty Gym Bag",
+    "category": "Bag",
+    "price": 70.0,
+    "image": "/images/products/image19.jpg",
+    "status": "New Arrival",
+    "description": "Practical gym bag for your workout essentials.",
+    "highlights": [
+      "Spacious main compartment",
+      "Water-resistant material",
+      "Adjustable shoulder strap",
+      "Durable design"
+    ],
+    "details": "This gym bag is perfect for your workouts, with enough space for all your gear."
+  },
+  {
+    "id": 20,
+    "title": "Smartphone Holder",
+    "category": "Accessories",
+    "price": 25.0,
+    "image": "/images/products/image20.jpg",
+    "status": "New Arrival",
+    "description": "Convenient holder for hands-free smartphone use.",
+    "highlights": [
+      "Adjustable viewing angles",
+      "Lightweight and portable",
+      "Compatible with all smartphones",
+      "Sturdy design"
+    ],
+    "details": "Use your smartphone hands-free with this convenient holder."
   }
 ]

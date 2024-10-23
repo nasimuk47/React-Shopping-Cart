@@ -1,16 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { FaShoppingBag } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
     <div className="bg-primaryBG py-12 xl:px-28 px-4">
       <div className="py-28 flex flex-col md:flex-row-reverse justify-between items-center gap-14">
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 overflow-hidden border-r-4 border-gray-300">
           <img
-            src="../../../public/banner.png"
+            src="../../../public/banner--2_upscaled.jpg"
             alt=""
-            className="mx-auto h-full md:h-[562px] md:w-[442px] w-full"
+            className="mx-auto h-full md:h-[562px] md:w-[442px] w-full object-cover rounded-tl-[140px] rounded-br-[100px] shadow-lg"
           />
         </div>
 
@@ -20,9 +21,11 @@ const Banner = () => {
             You can explore ans shop many differnt collection from various
             barands here.
           </p>
-          <button className="bg-Black hover:bg-orange-500 px-6 py-2 text-white font-semibold flex gap-2 items-center rounded-sm">
-            <FaShoppingBag className="inline-flex" /> Shop Now
-          </button>
+          <Link to="/category">
+            <button className="bg-Black hover:bg-orange-500 px-6 py-2 text-white font-semibold flex gap-2 items-center rounded-sm">
+              <FaShoppingBag className="inline-flex" /> Shop Now
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -5,8 +5,13 @@ import App from "./../App";
 import Home from "./../pages/Home/Home";
 import SingleProduct from "./../pages/Home/SingleProduct";
 import Registration from "../components/Registration";
-import Login from "../components/Login";
 import PrivateRoute from "./PrivateRoute";
+import Contact from "../pages/Contact";
+import About from "../pages/About";
+import Login from "./../components/Login";
+import Category from "../pages/Category";
+import Orderlist from "../pages/Orderlist";
+import Wishtlist from "../pages/Wishtlist";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +23,15 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/shop/:id",
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/registration",
+        element: <Registration />,
+      },
+      {
+        path: "/product/:id",
         element: (
           <PrivateRoute>
             <SingleProduct />
@@ -30,8 +43,24 @@ const router = createBrowserRouter([
         element: <Registration />,
       },
       {
-        path: "/Login",
-        element: <Login />,
+        path: "/category",
+        element: <Category />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/orderlist",
+        element: <Orderlist />,
+      },
+      {
+        path: "/wishlist",
+        element: <Wishtlist />,
       },
     ],
   },

@@ -1,161 +1,208 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useContext } from "react";
-import {
-  FaBars,
-  FaSearch,
-  FaShoppingBag,
-  FaTimes,
-  FaUser,
-} from "react-icons/fa";
+import React, { useState, useContext, useRef, useEffect } from "react";
+import { FaBars, FaSearch, FaTimes, FaUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./Auth/AuthProvider";
+import logo from "../assets/Nav-Logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const profileMenuRef = useRef(null);
 
-  const { currentUser } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const navItems = [
-    { title: "Jewelry & Accessories", path: "/" },
-    { title: "Clothing & Shoes", path: "/" },
-    { title: "Home & Living", path: "/" },
-    { title: "Wedding & Party", path: "/" },
-    { title: "Toys & Entertainment", path: "/" },
-    { title: "Art & Collectibles", path: "/" },
-    { title: "Craft Supplies & Tools", path: "/" },
-  ];
+  const toggleProfileMenu = () => {
+    setIsProfileMenuOpen(!isProfileMenuOpen);
+  };
 
-  const { user, logOut } = useContext(AuthContext);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        profileMenuRef.current &&
+        !profileMenuRef.current.contains(event.target)
+      ) {
+        setIsProfileMenuOpen(false);
+      }
+    };
 
-  console.log(user);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [profileMenuRef]);
 
   return (
-    <header className="max-w-screen-2xl xl:px-28 px-4 absolute top-0 left-0 right-0">
-      <nav className="flex justify-between items-center container md:py-4 pt-6 pb-3">
-        {/* Search Icon */}
-        <FaSearch className="text-Black w-6 h-6 cursor-pointer hidden md:block" />
-
-        {/* Store Name */}
-        <Link to="/" className="">
-          <div className="text-2xl text-gray-600 font-bold">
-            e-commerce store
-          </div>
+    <header className="bg-white shadow-md w-full z-50 top-0 left-0 right-0">
+      <nav className="flex justify-between items-center container mx-auto px-6 py-4">
+        {/* Logo */}
+        <Link to="/" className="flex items-center space-x-2">
+          <img src={logo} alt="Logo" className="w-28 h-12 object-contain" />
         </Link>
 
-        {/* Account and Shopping Button */}
-        <div className="text-lg text-Black sm:flex items-center gap-4 hidden">
+        {/* Navigation Links */}
+        <div className="hidden sm:flex items-center space-x-8 text-gray-700 font-medium">
+          <NavLink to="/" className="hover:text-blue-500 transition">
+            Home
+          </NavLink>
+          <NavLink to="/category" className="hover:text-blue-500 transition">
+            Category
+          </NavLink>
+          <NavLink to="/about" className="hover:text-blue-500 transition">
+            About Us
+          </NavLink>
+          <NavLink to="/contact" className="hover:text-blue-500 transition">
+            Contact Us
+          </NavLink>
+        </div>
+
+        <div className="hidden sm:flex items-center space-x-4">
           {user ? (
-            <>
+            <div className="relative">
               <img
                 src={user?.photoURL}
                 alt="User Profile"
-                className="h-10 rounded-full"
+                className="h-10 w-10 rounded-full border-2 border-blue-500 cursor-pointer"
+                onClick={toggleProfileMenu}
               />
-
-              <button
-                onClick={logOut}
-                className="text-blue-500 underline block mx-auto"
-              >
-                Logout
-              </button>
-            </>
+              {isProfileMenuOpen && (
+                <div
+                  ref={profileMenuRef}
+                  className="absolute right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-40 py-2"
+                >
+                  <Link to="orderlist">
+                    <button className="block w-full text-left text-gray-700 px-4 py-2 hover:bg-blue-500 hover:text-white transition">
+                      Order List
+                    </button>
+                  </Link>
+                  <Link to="wishlist">
+                    <button className="block w-full text-left text-gray-700 px-4 py-2 hover:bg-blue-500 hover:text-white transition">
+                      Wishlist
+                    </button>
+                  </Link>
+                  <button
+                    onClick={logOut}
+                    className="block w-full text-left text-gray-700 px-4 py-2 hover:bg-blue-500 hover:text-white transition"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
           ) : (
-            <NavLink to="/Login">
-              <div className="flex justify-center items-center">
-                <FaUser className="text-blue-500"></FaUser>
-                <button className="bg-white-500 text-blue-500 px-3 py-1 rounded-md ml-2">
-                  Account
-                </button>
+            <NavLink to="/login">
+              <div className="flex items-center space-x-2 bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-400 transition">
+                <FaUser />
+                <span>Sign in</span>
               </div>
             </NavLink>
           )}
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="sm:hidden">
-          <button onClick={toggleMenu}>
-            {isMenuOpen ? (
-              <FaTimes className="w-6 h-6 text-black" />
-            ) : (
-              <FaBars className="w-6 h-6 text-black" />
-            )}
-          </button>
-        </div>
+        <button onClick={toggleMenu} className="sm:hidden focus:outline-none">
+          {isMenuOpen ? (
+            <FaTimes className="w-6 h-6 text-gray-800" />
+          ) : (
+            <FaBars className="w-6 h-6 text-gray-800" />
+          )}
+        </button>
       </nav>
 
-      <hr />
-
-      {/* Nav Items for Desktop */}
-      <div className="pt-4">
-        <ul className="lg:flex items-center justify-between text-black hidden">
-          {navItems.map(({ title, path }) => (
-            <li key={title} className=" hover:text-orange-500">
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="sm:hidden bg-gray-800 text-white">
+          <ul className="flex flex-col items-center space-y-4 py-4">
+            <li>
               <NavLink
-                to={path}
-                className={({ isActive }) => (isActive ? "active" : "")}
+                to="/"
+                className="text-lg hover:text-blue-400 transition"
+                onClick={toggleMenu}
               >
-                {title}
+                Home
               </NavLink>
             </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Mobile Menu Items */}
-      <div className="text-center">
-        <ul
-          className={`bg-black text-white px-4 py-2 rounded ${
-            isMenuOpen ? "" : "hidden"
-          }`}
-        >
-          {/* Display user profile in mobile menu */}
-          {user ? (
-            <>
-              <div className="flex justify-center mb-2">
-                <img
-                  src={user?.photoURL}
-                  alt="User Profile"
-                  className="h-10 w-10 rounded-full mx-auto"
-                />
-              </div>
-              <span className="text-blue-500 underline block mb-2">
-                {user.displayName}
-              </span>
-              <button
-                onClick={logOut}
-                className="text-blue-500 underline block mx-auto"
+            <li>
+              <NavLink
+                to="/blog"
+                className="text-lg hover:text-blue-400 transition"
+                onClick={toggleMenu}
               >
-                Logout
-              </button>
-            </>
-          ) : (
-            <NavLink to="/Login">
-              <div className="flex justify-center items-center">
-                <FaUser className="text-blue-500"></FaUser>
-                <button className="bg-white-500 text-blue-500 px-3 py-1 rounded-md ml-2">
-                  Account
-                </button>
-              </div>
-            </NavLink>
-          )}
-
-          {/* Mobile Nav Items */}
-          {navItems.map(({ title, path }) => (
-            <li
-              key={title}
-              className=" hover:text-orange-500 my-3 cursor-pointer"
-            >
-              <Link to={path} onClick={toggleMenu}>
-                {title}
-              </Link>
+                Blog
+              </NavLink>
             </li>
-          ))}
-        </ul>
-      </div>
+            <li>
+              <NavLink
+                to="/about"
+                className="text-lg hover:text-blue-400 transition"
+                onClick={toggleMenu}
+              >
+                About Us
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/contact"
+                className="text-lg hover:text-blue-400 transition"
+                onClick={toggleMenu}
+              >
+                Contact Us
+              </NavLink>
+            </li>
+            {user ? (
+              <>
+                <li>
+                  <button
+                    onClick={() => {
+                      alert("Navigate to Order List");
+                      toggleMenu();
+                    }}
+                    className="text-lg text-blue-500 underline hover:text-blue-400 transition"
+                  >
+                    Order List
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      alert("Navigate to Wishlist");
+                      toggleMenu();
+                    }}
+                    className="text-lg text-blue-500 underline hover:text-blue-400 transition"
+                  >
+                    Wishlist
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      logOut();
+                      toggleMenu();
+                    }}
+                    className="text-lg text-blue-500 underline hover:text-blue-400 transition"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <NavLink
+                  to="/login"
+                  className="text-lg hover:text-blue-400 transition"
+                  onClick={toggleMenu}
+                >
+                  Account
+                </NavLink>
+              </li>
+            )}
+          </ul>
+        </div>
+      )}
     </header>
   );
 };

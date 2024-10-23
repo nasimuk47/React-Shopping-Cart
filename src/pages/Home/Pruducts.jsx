@@ -1,50 +1,41 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { FaFilter } from "react-icons/fa";
 import Card from "../../components/Card";
 
 const Products = () => {
   const [jsonData, setJsonData] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("all"); // Default: All
-  const [sortOption, setSortOption] = useState("default"); // Default sorting option
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [sortOption, setSortOption] = useState("default");
 
   useEffect(() => {
-    // Fetch data from the backend
     const fetchData = async () => {
       try {
         const response = await fetch("products.json");
         const data = await response.json();
         setJsonData(data);
-        setFilteredItems(data); // Initially, display all items
+        setFilteredItems(data.slice(0, 8));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures this effect runs once when the component mounts
+  }, []);
 
   const filterItems = (category) => {
     const filtered =
       category === "all"
-        ? jsonData
-        : jsonData.filter((item) => item.category === category);
+        ? jsonData.slice(0, 8)
+        : jsonData.filter((item) => item.category === category).slice(0, 8);
 
     setFilteredItems(filtered);
     setSelectedCategory(category);
   };
 
-  const showAll = () => {
-    setFilteredItems(jsonData);
-    setSelectedCategory("all");
-  };
-
   const handleSortChange = (option) => {
     setSortOption(option);
-
-    // Logic for sorting based on the selected option
     let sortedItems = [...filteredItems];
 
     switch (option) {
@@ -61,7 +52,6 @@ const Products = () => {
         sortedItems.sort((a, b) => b.price - a.price);
         break;
       default:
-        // Do nothing for the "default" case
         break;
     }
 
@@ -71,34 +61,52 @@ const Products = () => {
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4 mb-12">
       <h2 className="text-3xl font-semibold capitalize text-center my-8">
-        Or subscribe to the newsletter
+        Featured Products
       </h2>
 
-      {/* products card */}
       <div>
         <div className="flex flex-col md:flex-row flex-wrap md:justify-between items-center space-y-3 mb-8">
-          <div className="flex flex-row justify-start md:items-center md:gap-8 gap-4  flex-wrap">
+          <div className="flex flex-row justify-start md:items-center md:gap-8 gap-4 flex-wrap">
             <button
-              onClick={showAll}
-              className={selectedCategory === "all" ? "active" : ""}
+              onClick={() => filterItems("all")}
+              className={`px-3 py-1 text-sm rounded-sm transition-all duration-300 ${
+                selectedCategory === "all"
+                  ? "bg-orange-500 text-white"
+                  : "bg-gray-100 text-gray-800 hover:bg-orange-500 hover:text-white"
+              }`}
             >
               All Products
             </button>
+
             <button
               onClick={() => filterItems("Dress")}
-              className={selectedCategory === "Dress" ? "active" : ""}
+              className={`px-3 py-1 text-sm rounded-sm transition-all duration-300 ${
+                selectedCategory === "Dress"
+                  ? "bg-orange-500 text-white"
+                  : "bg-gray-100 text-gray-800 hover:bg-orange-500 hover:text-white"
+              }`}
             >
               Clothing
             </button>
+
             <button
               onClick={() => filterItems("Hoodies")}
-              className={selectedCategory === "Hoodies" ? "active" : ""}
+              className={`px-3 py-1 text-sm rounded-sm transition-all duration-300 ${
+                selectedCategory === "Hoodies"
+                  ? "bg-orange-500 text-white"
+                  : "bg-gray-100 text-gray-800 hover:bg-orange-500 hover:text-white"
+              }`}
             >
               Hoodies
             </button>
+
             <button
               onClick={() => filterItems("Bag")}
-              className={selectedCategory === "Bag" ? "active" : ""}
+              className={`px-3 py-1 text-sm rounded-sm transition-all duration-300 ${
+                selectedCategory === "Bag"
+                  ? "bg-orange-500 text-white"
+                  : "bg-gray-100 text-gray-800 hover:bg-orange-500 hover:text-white"
+              }`}
             >
               Bag
             </button>
@@ -123,7 +131,6 @@ const Products = () => {
           </div>
         </div>
 
-        {/* product card */}
         <Card filteredItems={filteredItems} />
       </div>
     </div>
