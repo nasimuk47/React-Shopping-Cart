@@ -4,6 +4,7 @@ import Category from "./Category";
 import Collections from "./Collections";
 import Newsletter from "./Newsletter";
 import Products from "./Pruducts";
+import Footer from "./../../components/Footer";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Collections></Collections>
       <BestSellers></BestSellers>
       <Newsletter></Newsletter>
+      <Footer></Footer>
     </div>
   );
 };

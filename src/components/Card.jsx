@@ -11,14 +11,15 @@ const Card = ({ filteredItems }) => {
           key={item.id}
           className="bg-white p-4 rounded-md shadow hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center w-full"
         >
-          <Link to={`/product/${item.id}`}>
-            <div className="w-full h-[250px] overflow-hidden rounded-md">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover hover:scale-105 transition-all duration-300"
-              />
-            </div>
+          <Link
+            to={`/product/${item.id}`}
+            className="w-full h-[250px] overflow-hidden rounded-md"
+          >
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            />
           </Link>
           <div className="mt-4 px-4 text-center">
             <h4 className="text-lg font-semibold mb-2">{item.title}</h4>

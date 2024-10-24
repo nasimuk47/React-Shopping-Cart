@@ -11,7 +11,8 @@ import About from "../pages/About";
 import Login from "./../components/Login";
 import Category from "../pages/Category";
 import Orderlist from "../pages/Orderlist";
-import Wishtlist from "../pages/Wishtlist";
+import Payout from "../pages/Payout";
+import Wishlist from "./../pages/Wishtlist";
 
 const router = createBrowserRouter([
   {
@@ -39,10 +40,6 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/Registration",
-        element: <Registration />,
-      },
-      {
         path: "/category",
         element: <Category />,
       },
@@ -56,11 +53,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/orderlist",
-        element: <Orderlist />,
+        element: (
+          <PrivateRoute>
+            <Orderlist />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/wishlist",
-        element: <Wishtlist />,
+        element: (
+          <PrivateRoute>
+            <Wishlist />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/payout",
+        element: (
+          <PrivateRoute>
+            <Payout />
+          </PrivateRoute>
+        ),
       },
     ],
   },

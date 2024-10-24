@@ -128,6 +128,15 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
+                to="/category"
+                className="text-lg hover:text-blue-400 transition"
+                onClick={toggleMenu}
+              >
+                Category
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/blog"
                 className="text-lg hover:text-blue-400 transition"
                 onClick={toggleMenu}

@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "./Auth/AuthProvider";
 import Lottie from "lottie-react";
-import loginAnimation from "../../src/assets/login-animation.json"; // Correct path for animation
+import loginAnimation from "../../src/assets/login-animation.json";
 
 const Login = () => {
   const { signInUser, signInWithGoogle } = useContext(AuthContext);

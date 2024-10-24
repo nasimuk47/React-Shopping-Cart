@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
 
 const BestSellers = () => {
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     fetch("products.json")
       .then((res) => res.json())
@@ -23,16 +21,14 @@ const BestSellers = () => {
 
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4">
-      <div className="text-center">
-        <h2 className="text-3xl font-semibold capitalize mb-5">Best Sellers</h2>
-        <p className="text-black/75 capitalize md:w-2/3 mx-auto mb-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus arcu
-          nunc, fermentum quis sapien in, placerat scelerisque risus. Class
-          aptent taciti sociosqu ad litora torquent per{" "}
+      <div className="text-center mb-10">
+        <h2 className="text-3xl font-semibold capitalize mb-2">Best Sellers</h2>
+        <p className="text-black/75 capitalize font-medium md:w-2/3 mx-auto">
+          Check out our best-selling products loved by customers for their
+          quality and style!
         </p>
       </div>
 
-      {/* best seller products card */}
       <div className="mb-16">
         <Swiper
           slidesPerView={1}
@@ -46,16 +42,16 @@ const BestSellers = () => {
           }}
           breakpoints={{
             640: {
-              slidesPerView: 1,
+              slidesPerView: 2,
               spaceBetween: 20,
             },
             768: {
               slidesPerView: 3,
-              spaceBetween: 40,
+              spaceBetween: 30,
             },
             1024: {
               slidesPerView: 4,
-              spaceBetween: 50,
+              spaceBetween: 40,
             },
           }}
           navigation={true}
@@ -63,19 +59,21 @@ const BestSellers = () => {
           className="mySwiper"
         >
           {bestSellers.map((product) => (
-            <SwiperSlide key={product.id}>
-              <Link to={`/shop/${product.id}`}>
+            <SwiperSlide
+              key={product.id}
+              className="flex flex-col items-center"
+            >
+              <Link to={`/product/${product.id}`}>
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="mx-auto w-full hover:scale-105 transition-all duration-300"
+                  className="w-full h-64 object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
                 />
               </Link>
-              <div className="mt-4 px-4">
-                <h4 className="text-base font-semibold mb-2">
+              <div className="mt-4 text-center px-2">
+                <h4 className="text-base font-semibold mb-1 truncate">
                   {product.title}
                 </h4>
-
                 <div className="flex justify-between">
                   <p className="text-black/50">{product.category}</p>
                   <p className="font-semibold">${product.price}</p>
