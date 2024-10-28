@@ -52,9 +52,14 @@ const Navbar = () => {
           <NavLink to="/category" className="hover:text-blue-500 transition">
             Category
           </NavLink>
-          <NavLink to="/about" className="hover:text-blue-500 transition">
-            About Us
+
+          <NavLink
+            to="/blog"
+            className="text-lg hover:text-blue-400 transition"
+          >
+            Blog
           </NavLink>
+
           <NavLink to="/contact" className="hover:text-blue-500 transition">
             Contact Us
           </NavLink>
@@ -72,7 +77,7 @@ const Navbar = () => {
               {isProfileMenuOpen && (
                 <div
                   ref={profileMenuRef}
-                  className="absolute right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-40 py-2"
+                  className="absolute right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-40 py-2 z-50"
                 >
                   <Link to="orderlist">
                     <button className="block w-full text-left text-gray-700 px-4 py-2 hover:bg-blue-500 hover:text-white transition">
@@ -103,7 +108,6 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Mobile Menu Button */}
         <button onClick={toggleMenu} className="sm:hidden focus:outline-none">
           {isMenuOpen ? (
             <FaTimes className="w-6 h-6 text-gray-800" />
@@ -113,7 +117,6 @@ const Navbar = () => {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="sm:hidden bg-gray-800 text-white">
           <ul className="flex flex-col items-center space-y-4 py-4">
@@ -142,15 +145,6 @@ const Navbar = () => {
                 onClick={toggleMenu}
               >
                 Blog
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/about"
-                className="text-lg hover:text-blue-400 transition"
-                onClick={toggleMenu}
-              >
-                About Us
               </NavLink>
             </li>
             <li>

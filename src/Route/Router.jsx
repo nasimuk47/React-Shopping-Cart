@@ -7,12 +7,12 @@ import SingleProduct from "./../pages/Home/SingleProduct";
 import Registration from "../components/Registration";
 import PrivateRoute from "./PrivateRoute";
 import Contact from "../pages/Contact";
-import About from "../pages/About";
 import Login from "./../components/Login";
-import Category from "../pages/Category";
 import Orderlist from "../pages/Orderlist";
 import Payout from "../pages/Payout";
 import Wishlist from "./../pages/Wishtlist";
+import Blog from "../pages/Blog";
+import AllCategory from "../pages/AllCategory";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +32,10 @@ const router = createBrowserRouter([
         element: <Registration />,
       },
       {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
         path: "/product/:id",
         element: (
           <PrivateRoute>
@@ -41,16 +45,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/category",
-        element: <Category />,
+        element: <AllCategory />,
       },
       {
         path: "/contact",
         element: <Contact />,
       },
-      {
-        path: "/about",
-        element: <About />,
-      },
+
       {
         path: "/orderlist",
         element: (

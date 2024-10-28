@@ -20,25 +20,24 @@ const Category = () => {
             <img
               src={img}
               alt={`Company logo ${id}`}
+              loading="lazy"
               className="object-contain w-full h-full"
             />
           </div>
         ))}
       </div>
 
-      {/* Category grid */}
       <div className="flex flex-col md:flex-row items-center gap-6 mt-12">
-        {/* Side label */}
         <p className="font-semibold md:-rotate-90 uppercase text-center bg-black text-white md:p-2 p-3 rounded-sm inline-flex shadow-lg">
           Explore new and popular styles
         </p>
 
-        {/* Main category image */}
         <div className="w-full md:w-1/2">
           <Link to="/">
             <img
               src="/images/category/category-1.jpg"
               alt="Category 1"
+              loading="lazy"
               className="w-full h-[400px] object-cover rounded-lg shadow-lg hover:scale-105 transition-all duration-300"
             />
           </Link>
@@ -56,6 +55,7 @@ const Category = () => {
                 <img
                   src={src}
                   alt={`Category ${index + 2}`}
+                  loading="lazy"
                   className="w-full h-[200px] object-cover rounded-lg shadow-md hover:scale-105 transition-all duration-300"
                 />
               </Link>
